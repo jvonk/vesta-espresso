@@ -25,10 +25,10 @@ __URL__ = metadata["Home-page"]
 
 def _setup_tmpdir():
     """
-    Set up a temporary directory $HOME/.vesta-espresso
+    Set up a temporary directory $HOME/.vesta-espresso or $USERPROFILE/.vesta-espresso
     to store temporary files
     """
-    tmpdir = os.path.join(os.getenv("HOME"), ".vesta-espresso")
+    tmpdir = os.path.join(os.getenv("HOME") or os.getenv("USERPROFILE"), ".vesta-espresso")
     if not os.path.exists(tmpdir):
         logging.debug(f"Creating temporary directory {tmpdir}")
         os.makedirs(tmpdir)
